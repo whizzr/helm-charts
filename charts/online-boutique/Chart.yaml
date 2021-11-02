@@ -3,7 +3,7 @@ name: online-boutique
 description: A Helm chart for installing Online Boutique. See README.md for installation instructions
 home: https://github.com/cyberbliss/microservices-demo
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: 0.1.4
 dependencies:
   - name: adservice
