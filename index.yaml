@@ -29,6 +29,67 @@ entries:
   online-boutique:
   - apiVersion: v2
     appVersion: 0.1.4
+    created: "2021-11-02T16:46:04.673259693Z"
+    dependencies:
+    - condition: adservice.enabled
+      name: adservice
+      repository: file://./adservice
+      version: 0.1.0
+    - condition: cartservice.enabled
+      name: cartservice
+      repository: file://./cartservice
+      version: 0.1.0
+    - condition: checkoutservice.enabled
+      name: checkoutservice
+      repository: file://./checkoutservice
+      version: 0.1.0
+    - condition: currencyservice.enabled
+      name: currencyservice
+      repository: file://./currencyservice
+      version: 0.1.0
+    - condition: emailservice.enabled
+      name: emailservice
+      repository: file://./emailservice
+      version: 0.1.0
+    - condition: frontend.enabled
+      name: frontend
+      repository: file://./frontend
+      version: 0.1.1
+    - condition: loadgenerator.enabled
+      name: loadgenerator
+      repository: file://./loadgenerator
+      version: 0.1.0
+    - condition: paymentservice.enabled
+      name: paymentservice
+      repository: file://./paymentservice
+      version: 0.1.0
+    - condition: productcatalogservice.enabled
+      name: productcatalogservice
+      repository: file://./productcatalogservice
+      version: 0.1.0
+    - condition: recommendationservice.enabled
+      name: recommendationservice
+      repository: file://./recommendationservice
+      version: 0.1.0
+    - condition: redis.enabled
+      name: redis
+      repository: file://./redis
+      version: 0.1.0
+    - condition: shippingservice.enabled
+      name: shippingservice
+      repository: file://./shippingservice
+      version: 0.1.0
+    description: A Helm chart for installing Online Boutique. See README.md for installation
+      instructions
+    digest: 39bdb393dcee6141794dcd143d4a062f2cf00e804410ea26ba213c0174376d00
+    home: https://github.com/cyberbliss/microservices-demo
+    name: online-boutique
+    type: application
+    urls:
+    - https://github.com/whizzr/helm-charts/releases/download/online-boutique-0.1.1/online-boutique-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.4
     created: "2021-11-02T15:52:15.486828252Z"
     dependencies:
     - condition: adservice.enabled
@@ -99,4 +160,4 @@ entries:
     urls:
     - https://github.com/whizzr/helm-charts/releases/download/testchart-0.1.0/testchart-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-02T15:52:15.486840452Z"
+generated: "2021-11-02T16:46:04.673275993Z"
