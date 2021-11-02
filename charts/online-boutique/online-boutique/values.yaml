@@ -1,0 +1,105 @@
+global:
+  namespace: hipster
+  istio:
+    enabled: false #set to true to add the annotation for injecting Istio proxy to Pods
+  image:
+    pullSecrets:
+
+adservice:
+  enabled: true
+  fullnameOverride: adservice
+  image:
+    tag: v0.1.4-50-g5372b01
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+cartservice:
+  enabled: true
+  fullnameOverride: cartservice
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+checkoutservice:
+  enabled: true
+  fullnameOverride: checkoutservice
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+currencyservice:
+  enabled: true
+  fullnameOverride: currencyservice
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+emailservice:
+  enabled: true
+  fullnameOverride: emailservice  
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+frontend:
+  enabled: true
+  fullnameOverride: frontend
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+  ingress:
+    enabled: false
+    tls: true
+    hosts:
+      - name: ob.steve-judd-gcp.jetstacker.net
+#        port: 80
+    # annotations:
+    #   cert-manager.io/cluster-issuer: letsencrypt-prod
+    #   kubernetes.io/ingress.class: nginx
+    #   kubernetes.io/tls-acme: "true"
+    #   kubernetes.io/ingress.allow-http: "false"
+
+loadgenerator:
+  enabled: true
+  fullnameOverride: loadgenerator
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+paymentservice:
+  enabled: true
+  fullnameOverride: paymentservice  
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+productcatalogservice:
+  enabled: true
+  fullnameOverride: productcatalogservice  
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+recommendationservice:
+  enabled: true
+  fullnameOverride: recommendationservice  
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+redis:
+  fullnameOverride: redis-cart
+  enabled: true
+  image:
+    tag: latest
+    # pullSecrets:
+    # - gcr-access-marketplace
+  # podAnnotations:
+  #   linkerd.io/inject: enabled
+shippingservice:
+  enabled: true
+  fullnameOverride: shippingservice  
+  image:
+    tag: v0.1.4-50-g5372b01  
+  # podAnnotations:
+  #   linkerd.io/inject: enabled

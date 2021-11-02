@@ -1,0 +1,19 @@
+replicaCount: 1
+global:
+  image:
+    pullSecrets:
+    
+image:
+  repository: eu.gcr.io/jetstack-steve-judd/paymentservice
+  pullPolicy: IfNotPresent
+  
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+service:
+  type: ClusterIP

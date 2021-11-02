@@ -1,0 +1,32 @@
+replicaCount: 1
+global:
+  namespace: dummy
+  image:
+    pullSecrets:
+  istio:
+    enabled: true
+    
+image:
+  repository: eu.gcr.io/jetstack-steve-judd/frontend
+  pullPolicy: IfNotPresent
+  
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  tls: true
+  hosts:
+    - name: localhost
+      port: 80
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+    kubernetes.io/ingress.class: nginx

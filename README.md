@@ -1,6 +1,6 @@
 # helm-charts
 
-This repo serves as a Helm chart registry - uses a Git action to generate the tar.gz and Git pages to serve them.
+This repo serves as a Helm chart registry - uses a Git Action to generate the tar.gz and Git pages to serve them.
 
 ## Usage
 ### Consuming charts
@@ -17,3 +17,5 @@ helm search repo whizzr
 1. Push/merge into main - a Github Action will take care of the rest
 
 Hint: use this to only download the Helm chart in a repo containing other stuff: https://download-directory.github.io/
+
+To check that the charts have been updated ok: https://whizzr.github.io/helm-charts/index.yaml

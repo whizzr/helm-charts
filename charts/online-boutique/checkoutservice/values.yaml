@@ -1,0 +1,19 @@
+replicaCount: 1
+global:
+  image:
+    pullSecrets:
+    
+image:
+  repository: eu.gcr.io/jetstack-steve-judd/checkoutservice
+  pullPolicy: IfNotPresent
+  
+resources:
+  requests:
+    cpu: 200m
+    memory: 64Mi
+  limits:
+    cpu: 300m
+    memory: 128Mi
+
+service:
+  type: ClusterIP

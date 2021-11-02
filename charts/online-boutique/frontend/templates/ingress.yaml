@@ -1,0 +1,34 @@
+{{- if .Values.ingress.enabled -}}
+{{- if not .Values.global.istio.enabled -}}
+{{- $fullName := include "common.fullname" . -}}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+{{ template "lib-chart.metadata" . }}
+{{- if .Values.ingress.annotations }}
+  annotations:
+  {{- range $key, $value := .Values.ingress.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+{{- end }}
+spec:
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ .name }}
+      http:
+        paths:
+          - path: {{ default "/" .path }}
+            pathType: {{ default "Prefix" .type }}
+            backend:
+              serviceName: {{ $fullName }}
+              servicePort: {{ .port }}
+  {{- end }}
+  {{- if .Values.ingress.tls }}
+  tls:
+  - hosts:
+    {{- range .Values.ingress.hosts }}
+    - {{ .name }}
+    {{- end }}
+    secretName: onlineboutique-tls
+  {{- end }}
+{{- end }}
+{{- end }}

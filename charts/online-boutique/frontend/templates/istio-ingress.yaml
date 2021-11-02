@@ -1,0 +1,67 @@
+{{- if and (.Values.global.istio.enabled) (.Values.ingress.enabled) -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ob-tls-cert
+  namespace: istio-system
+spec:
+  secretName: ob-tls
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  dnsNames:
+{{- range .Values.ingress.hosts }}
+  - {{ .name }}
+{{- end }}
+---
+# Needs to be in the same NS as the workload
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: ob-gateway
+  namespace: {{ .Values.global.namespace }}
+spec:
+  selector:
+    istio: ingressgateway # use Istio default gateway implementation
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+{{- range .Values.ingress.hosts }}
+    - {{ .name }}
+{{- end }}
+    tls:
+      httpsRedirect: true
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    hosts:
+{{- range .Values.ingress.hosts }}
+    - {{ .name }}
+{{- end }}
+    tls:
+      mode: SIMPLE
+      credentialName: ob-tls
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ob-virtualservice
+  namespace: {{ .Values.global.namespace }}
+spec:
+  hosts:
+{{- range .Values.ingress.hosts }}
+  - {{ .name }}
+{{- end }}
+  gateways:
+  - ob-gateway
+  http:
+  - route:
+    - destination:
+        port:
+          number: 80
+        host: {{ template "common.fullname" . }}
+{{- end }}

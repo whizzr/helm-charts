@@ -1,0 +1,19 @@
+{{- define "lib-chart.container.tpl" -}}
+name: {{ .Chart.Name }}
+{{ if .Values.image.tag }}
+image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+{{ else }}
+image: {{ .Values.image.repository }}
+{{ end }}
+imagePullPolicy: {{ .Values.image.pullPolicy }}
+ports:
+- name: http
+  containerPort: 80
+resources:
+{{ toYaml .Values.resources | indent 2 }}
+{{- end -}}
+{{- define "lib-chart.container" -}}
+{{- /* clear new line so indentation works correctly */ -}}
+{{- println "" -}}
+{{- include "lib-chart.util.merge" (append . "lib-chart.container.tpl") | indent 8 -}}
+{{- end -}}
