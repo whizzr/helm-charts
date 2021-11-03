@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.appName }}
+  labels:
+{{- range $k, $v := .Values.deploy.labels }}
+    {{ $k }}: {{ $v }}
+{{- end }}
 spec:
   selector:
     matchLabels:
@@ -19,3 +23,12 @@ spec:
         - "-text={{ .Values.outputText }}"
         ports:
         - containerPort: 5678
+        env:
+        {{- range $k,$v := .Values.deploy.envVars }}
+        {{- range $kk,$vv := $v }}
+        - name: {{ $kk }}
+          value: {{ $vv }}
+        {{- end }}
+        {{- else }}
+          []
+        {{- end }}

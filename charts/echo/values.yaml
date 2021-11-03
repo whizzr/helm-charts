@@ -3,3 +3,10 @@ outputText: "sometext"
 replicas: 1
 service:
   testLabel: testing1
+deploy:
+  labels:
+    foo: bar
+    abc: def
+  envVars:
+  - foo: bar
+  - key1: val1
