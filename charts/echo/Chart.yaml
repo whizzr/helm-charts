@@ -2,4 +2,4 @@ apiVersion: v2
 name: echo
 description: A Helm chart for deploying echo
 type: application
-version: 0.2.0
+version: 0.3.0
