@@ -28,6 +28,15 @@ entries:
     version: 1.0.0
   echo:
   - apiVersion: v2
+    created: "2021-11-03T12:35:04.634918408Z"
+    description: A Helm chart for deploying echo
+    digest: 8ba4ed8dc442ac8a628aeba54709ff1f86abb82874809fc1f5b24bc64f563f3e
+    name: echo
+    type: application
+    urls:
+    - https://github.com/whizzr/helm-charts/releases/download/echo-0.3.0/echo-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2021-11-03T09:26:36.589573334Z"
     description: A Helm chart for deploying echo
     digest: 304f628365d9fbf7ac81636bc295397cf73525b4ffef4df7a32dd7ab938710dc
@@ -179,4 +188,4 @@ entries:
     urls:
     - https://github.com/whizzr/helm-charts/releases/download/testchart-0.1.0/testchart-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-03T09:26:36.589584134Z"
+generated: "2021-11-03T12:35:04.634940108Z"
