@@ -26,6 +26,16 @@ entries:
     urls:
     - https://github.com/whizzr/helm-charts/releases/download/connaisseur-1.0.0/connaisseur-1.0.0.tgz
     version: 1.0.0
+  echo:
+  - apiVersion: v2
+    created: "2021-11-03T09:08:59.056054044Z"
+    description: A Helm chart for deploying echo
+    digest: da15abbf82e6cd2bec165dd861d6b9217b5537848d02a32928b932c1511f5ac0
+    name: echo
+    type: application
+    urls:
+    - https://github.com/whizzr/helm-charts/releases/download/echo-0.1.0/echo-0.1.0.tgz
+    version: 0.1.0
   online-boutique:
   - apiVersion: v2
     appVersion: 0.1.4
@@ -160,4 +170,4 @@ entries:
     urls:
     - https://github.com/whizzr/helm-charts/releases/download/testchart-0.1.0/testchart-0.1.0.tgz
     version: 0.1.0
-generated: "2021-11-02T16:46:04.673275993Z"
+generated: "2021-11-03T09:08:59.056064244Z"
