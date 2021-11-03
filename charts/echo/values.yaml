@@ -1,3 +1,5 @@
 appName: echo
 outputText: "sometext"
 replicas: 1
+service:
+  testLabel: testing1
